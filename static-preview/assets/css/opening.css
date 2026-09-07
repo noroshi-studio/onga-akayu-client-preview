@@ -218,26 +218,26 @@
 
 @media (prefers-reduced-motion: reduce) {
   .js.onga-intro-pending .onga-opening {
-    animation: onga-opening-layer-reduced .6s linear forwards !important;
+    animation: onga-opening-layer-reduced var(--opening-duration) linear forwards !important;
   }
 
   .js.onga-intro-pending .onga-opening__background {
-    opacity: 1;
+    opacity: 0;
     transform: none;
-    animation: none !important;
+    animation: onga-opening-background-reduced var(--opening-duration) linear forwards !important;
   }
 
   .js.onga-intro-pending .onga-opening__brand {
-    opacity: 1;
+    opacity: 0;
     transform: none;
     filter: none;
-    animation: none !important;
+    animation: onga-opening-brand-reduced var(--opening-duration) cubic-bezier(.4, 0, .2, 1) forwards !important;
   }
 
   .js.onga-intro-pending .onga-opening__copy {
-    opacity: 1;
+    opacity: 0;
     transform: none;
-    animation: none !important;
+    animation: onga-opening-copy-reduced var(--opening-duration) cubic-bezier(.4, 0, .2, 1) forwards !important;
   }
 
   .js.onga-intro-pending .onga-opening.is-ending {
@@ -248,8 +248,25 @@
   }
 
   @keyframes onga-opening-layer-reduced {
-    0%, 72% { opacity: 1; visibility: visible; pointer-events: auto; }
+    0%, 82% { opacity: 1; visibility: visible; pointer-events: auto; }
     100% { opacity: 0; visibility: hidden; pointer-events: none; }
+  }
+
+  @keyframes onga-opening-background-reduced {
+    0% { opacity: 0; }
+    24%, 100% { opacity: 1; }
+  }
+
+  @keyframes onga-opening-brand-reduced {
+    0%, 14% { opacity: 0; }
+    58%, 82% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  @keyframes onga-opening-copy-reduced {
+    0%, 38% { opacity: 0; }
+    64%, 82% { opacity: 1; }
+    100% { opacity: 0; }
   }
 }
 
