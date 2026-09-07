@@ -1,0 +1,23 @@
+# This repository intentionally publishes only the static client preview and
+# the small set of repository-management files listed below.
+*
+
+!.gitignore
+!README.md
+!.github/
+!.github/workflows/
+!.github/workflows/pages.yml
+!static-preview/
+!static-preview/**
+
+# Local and generated files must never be committed.
+.DS_Store
+**/.DS_Store
+*.log
+*.tmp
+*.temp
+*.bak
+*~
+**/__pycache__/
+**/.cache/
+**/node_modules/

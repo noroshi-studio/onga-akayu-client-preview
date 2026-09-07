@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" role="img" aria-labelledby="t d">
+  <title id="t">無色透明な源泉</title><desc id="d">汲み上げ直後の透明感のある湯を表した図</desc>
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#f8fbf8"/><stop offset="1" stop-color="#bcdad5"/></linearGradient></defs>
+  <rect width="400" height="280" rx="22" fill="#e8efea"/>
+  <circle cx="200" cy="126" r="82" fill="url(#g)" stroke="#7fa5a0" stroke-width="4"/>
+  <path d="M123 126c35-24 64 19 98-5 31-22 50 9 57 14" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" opacity=".85"/>
+  <path d="M156 62c-12-18 11-28 2-44M213 60c-10-17 13-27 4-45M261 76c-9-16 12-25 5-39" fill="none" stroke="#7fa5a0" stroke-width="5" stroke-linecap="round" opacity=".55"/>
+</svg>

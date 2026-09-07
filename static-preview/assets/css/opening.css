@@ -1,0 +1,236 @@
+/* =========================================================
+   Opening sequence
+   Presentation images can be replaced without changing styles or scripts.
+   ========================================================= */
+
+.onga-opening {
+  --opening-ink: #070605;
+  --opening-ivory: #f6efe2;
+  --opening-gold: #c3a36a;
+  position: fixed;
+  z-index: 10000;
+  inset: 0;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: none;
+  place-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  color: var(--opening-ivory);
+  background: var(--opening-ink);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.js.onga-intro-pending .onga-opening {
+  display: grid;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  animation: onga-opening-layer 3.6s linear forwards;
+}
+
+.onga-opening__background,
+.onga-opening__background img,
+.onga-opening__shade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.onga-opening__background {
+  z-index: -3;
+  margin: 0;
+  opacity: 0;
+  transform: scale(1.035);
+}
+
+.js.onga-intro-pending .onga-opening__background {
+  animation: onga-opening-background 3.6s cubic-bezier(.22, .75, .2, 1) forwards;
+}
+
+.onga-opening__background img {
+  display: block;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.onga-opening__shade {
+  z-index: -2;
+  background:
+    radial-gradient(circle at 50% 47%, rgba(15, 10, 7, .08) 0 18%, rgba(4, 3, 2, .47) 68%, rgba(0, 0, 0, .73) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, .48), rgba(0, 0, 0, .08) 47%, rgba(0, 0, 0, .48));
+}
+
+.onga-opening__brand {
+  display: grid;
+  place-items: center;
+  gap: clamp(17px, 2.2vh, 25px);
+  padding: max(32px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right)) max(32px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
+  opacity: 0;
+  transform: translateY(10px) scale(.94);
+  will-change: opacity, transform;
+}
+
+.js.onga-intro-pending .onga-opening__brand {
+  animation: onga-opening-brand 3.6s cubic-bezier(.22, .75, .2, 1) forwards;
+}
+
+.onga-opening__logo-frame {
+  position: relative;
+  width: clamp(166px, 42vw, 360px);
+  aspect-ratio: 1;
+  display: block;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow:
+    0 0 0 1px rgba(215, 183, 122, .2),
+    0 0 42px rgba(190, 119, 52, .14),
+    0 14px 52px rgba(0, 0, 0, .28);
+}
+
+.onga-opening__logo-frame img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 136%;
+  max-width: none;
+  height: auto;
+  display: block;
+  transform: translate(-50%, -50%);
+}
+
+.onga-opening__copy {
+  margin: 0;
+  color: var(--opening-ivory);
+  font-family: var(--font-heading, "Yu Mincho", "Hiragino Mincho ProN", serif);
+  font-size: clamp(.72rem, 1.25vw, .9rem);
+  font-weight: 500;
+  line-height: 1.8;
+  letter-spacing: .16em;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, .72);
+}
+
+.onga-opening__skip {
+  position: absolute;
+  z-index: 2;
+  top: max(18px, calc(env(safe-area-inset-top) + 10px));
+  right: max(18px, calc(env(safe-area-inset-right) + 10px));
+  min-width: 64px;
+  min-height: 44px;
+  padding: 0 10px;
+  color: rgba(246, 239, 226, .82);
+  font: 500 .66rem/1 var(--font-numeric, sans-serif);
+  letter-spacing: .18em;
+  background: rgba(5, 4, 3, .2);
+  border: 0;
+  border-bottom: 1px solid rgba(195, 163, 106, .56);
+  border-radius: 0;
+  cursor: pointer;
+  transition: color .2s ease, background-color .2s ease, border-color .2s ease;
+}
+
+.onga-opening__skip:hover {
+  color: #fff;
+  background: rgba(5, 4, 3, .46);
+  border-bottom-color: var(--opening-gold);
+}
+
+.onga-opening__skip:focus-visible {
+  outline: 2px solid var(--opening-ivory);
+  outline-offset: 4px;
+}
+
+.js.onga-intro-pending .onga-opening.is-ending {
+  animation: onga-opening-skip .36s ease forwards;
+}
+
+.js.onga-intro-pending .onga-opening.is-ending .onga-opening__brand {
+  animation: onga-opening-brand-skip .36s ease forwards;
+}
+
+.js.onga-intro-pending .onga-opening.is-ending .onga-opening__background {
+  animation: onga-opening-background-skip .36s ease forwards;
+}
+
+@keyframes onga-opening-layer {
+  0%, 77.777% { opacity: 1; visibility: visible; pointer-events: auto; }
+  99.9% { opacity: 0; visibility: visible; pointer-events: auto; }
+  100% { opacity: 0; visibility: hidden; pointer-events: none; }
+}
+
+@keyframes onga-opening-background {
+  0% { opacity: 0; transform: scale(1.035); }
+  11.111% { opacity: 1; }
+  77.777% { opacity: 1; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes onga-opening-brand {
+  0%, 11.111% { opacity: 0; transform: translateY(10px) scale(.94); }
+  50%, 77.777% { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-10px) scale(1); }
+}
+
+@keyframes onga-opening-skip {
+  to { opacity: 0; visibility: hidden; pointer-events: none; }
+}
+
+@keyframes onga-opening-brand-skip {
+  to { opacity: 0; transform: translateY(-7px) scale(1); }
+}
+
+@keyframes onga-opening-background-skip {
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 600px) {
+  .onga-opening__background img {
+    object-position: 50% 50%;
+  }
+
+  .onga-opening__logo-frame {
+    width: clamp(166px, 52vw, 260px);
+  }
+
+  .onga-opening__brand {
+    transform: translateY(8px) scale(.94);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js.onga-intro-pending .onga-opening {
+    animation: onga-opening-layer-reduced .6s linear forwards !important;
+  }
+
+  .js.onga-intro-pending .onga-opening__background {
+    opacity: 1;
+    transform: none;
+    animation: none !important;
+  }
+
+  .js.onga-intro-pending .onga-opening__brand {
+    opacity: 1;
+    transform: none;
+    animation: none !important;
+  }
+
+  .js.onga-intro-pending .onga-opening.is-ending {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    animation: none !important;
+  }
+
+  @keyframes onga-opening-layer-reduced {
+    0%, 72% { opacity: 1; visibility: visible; pointer-events: auto; }
+    100% { opacity: 0; visibility: hidden; pointer-events: none; }
+  }
+}
+
+@media print {
+  .onga-opening { display: none !important; }
+}

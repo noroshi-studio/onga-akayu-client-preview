@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">田園に佇む遠賀川温泉のイメージ</title>
+  <desc id="desc">夕暮れ前の空、稲田、一軒家型の温泉、湯気を描いたオリジナルイラスト</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#dbe8e4"/>
+      <stop offset=".62" stop-color="#efe8d6"/>
+      <stop offset="1" stop-color="#e3cda0"/>
+    </linearGradient>
+    <linearGradient id="field" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9ca66c"/>
+      <stop offset="1" stop-color="#b8933f"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d8e7e1"/>
+      <stop offset=".55" stop-color="#c7a269"/>
+      <stop offset="1" stop-color="#a8422b"/>
+    </linearGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="7"/></filter>
+    <style>
+      .steam{animation:float 6s ease-in-out infinite;transform-origin:center;opacity:.52}
+      .steam:nth-of-type(2){animation-delay:-2s}.steam:nth-of-type(3){animation-delay:-4s}
+      @keyframes float{0%,100%{transform:translateY(5px)}50%{transform:translateY(-10px)}}
+      @media(prefers-reduced-motion:reduce){.steam{animation:none}}
+    </style>
+  </defs>
+  <rect width="1200" height="760" rx="28" fill="url(#sky)"/>
+  <circle cx="948" cy="132" r="58" fill="#f5e4ba" opacity=".8"/>
+  <path d="M0 332c144-52 242-32 368 8 133 42 254 35 379-6 177-58 319-31 453 20v406H0Z" fill="#78866a" opacity=".58"/>
+  <path d="M0 405c176-46 346-34 511 16 182 55 405 49 689-24v363H0Z" fill="url(#field)"/>
+  <g opacity=".28" stroke="#efe8d6" stroke-width="4">
+    <path d="M0 485c245-55 449-49 615-10 180 43 375 42 585-21"/>
+    <path d="M0 566c259-55 460-52 629-15 196 43 386 31 571-16"/>
+    <path d="M0 654c240-51 445-50 641-14 199 36 385 24 559-12"/>
+  </g>
+  <g stroke="#4d604b" stroke-width="3" opacity=".5">
+    <path d="M130 438v256M204 425v252M1051 421v271M1124 410v260"/>
+  </g>
+  <g transform="translate(338 268)">
+    <path d="M20 136 268 0l264 136" fill="#253a45"/>
+    <path d="M52 126h445v278H52z" fill="#eee3ca"/>
+    <path d="M52 126h445v44H52z" fill="#a8422b"/>
+    <path d="M83 211h126v193H83zM350 211h112v193H350z" fill="#253a45" opacity=".88"/>
+    <path d="M95 225h102v86H95zM362 225h88v86h-88z" fill="#dbe8e4"/>
+    <path d="M223 200h112v204H223z" fill="#b8933f"/>
+    <path d="M238 217h82v187h-82z" fill="#a8422b"/>
+    <circle cx="299" cy="312" r="5" fill="#efe8d6"/>
+    <path d="M146 126v44M406 126v44" stroke="#efe8d6" stroke-width="7"/>
+    <path d="M226 82h105" stroke="#efe8d6" stroke-width="9" stroke-linecap="round"/>
+    <text x="278" y="112" text-anchor="middle" fill="#efe8d6" font-size="24" font-family="serif" letter-spacing="6">赤湯</text>
+  </g>
+  <path d="M240 693c183-38 349-36 499-4 142 30 269 22 381-10" fill="none" stroke="url(#water)" stroke-width="26" stroke-linecap="round" opacity=".72"/>
+  <g fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" filter="url(#soft)">
+    <path class="steam" d="M523 228c-32-37 25-61-4-101"/>
+    <path class="steam" d="M601 216c-23-35 29-57 5-94"/>
+    <path class="steam" d="M673 233c-27-37 26-57 2-96"/>
+  </g>
+</svg>
