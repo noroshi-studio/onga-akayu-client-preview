@@ -7,6 +7,7 @@
   --opening-ink: #070605;
   --opening-ivory: #f6efe2;
   --opening-gold: #c3a36a;
+  --opening-duration: 5.4s;
   position: fixed;
   z-index: 10000;
   inset: 0;
@@ -28,7 +29,7 @@
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  animation: onga-opening-layer 3.6s linear forwards;
+  animation: onga-opening-layer var(--opening-duration) cubic-bezier(.4, 0, .2, 1) forwards;
 }
 
 .onga-opening__background,
@@ -44,11 +45,12 @@
   z-index: -3;
   margin: 0;
   opacity: 0;
-  transform: scale(1.035);
+  transform: scale(1.06);
+  will-change: opacity, transform;
 }
 
 .js.onga-intro-pending .onga-opening__background {
-  animation: onga-opening-background 3.6s cubic-bezier(.22, .75, .2, 1) forwards;
+  animation: onga-opening-background var(--opening-duration) cubic-bezier(.16, 1, .3, 1) forwards;
 }
 
 .onga-opening__background img {
@@ -70,12 +72,13 @@
   gap: clamp(17px, 2.2vh, 25px);
   padding: max(32px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right)) max(32px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
   opacity: 0;
-  transform: translateY(10px) scale(.94);
-  will-change: opacity, transform;
+  transform: translateY(18px) scale(.965);
+  filter: blur(4px);
+  will-change: opacity, transform, filter;
 }
 
 .js.onga-intro-pending .onga-opening__brand {
-  animation: onga-opening-brand 3.6s cubic-bezier(.22, .75, .2, 1) forwards;
+  animation: onga-opening-brand var(--opening-duration) cubic-bezier(.16, 1, .3, 1) forwards;
 }
 
 .onga-opening__logo-frame {
@@ -112,6 +115,12 @@
   line-height: 1.8;
   letter-spacing: .16em;
   text-shadow: 0 2px 14px rgba(0, 0, 0, .72);
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.js.onga-intro-pending .onga-opening__copy {
+  animation: onga-opening-copy var(--opening-duration) cubic-bezier(.16, 1, .3, 1) forwards;
 }
 
 .onga-opening__skip {
@@ -145,34 +154,40 @@
 }
 
 .js.onga-intro-pending .onga-opening.is-ending {
-  animation: onga-opening-skip .36s ease forwards;
+  animation: onga-opening-skip .48s ease forwards;
 }
 
 .js.onga-intro-pending .onga-opening.is-ending .onga-opening__brand {
-  animation: onga-opening-brand-skip .36s ease forwards;
+  animation: onga-opening-brand-skip .48s ease forwards;
 }
 
 .js.onga-intro-pending .onga-opening.is-ending .onga-opening__background {
-  animation: onga-opening-background-skip .36s ease forwards;
+  animation: onga-opening-background-skip .48s ease forwards;
 }
 
 @keyframes onga-opening-layer {
-  0%, 77.777% { opacity: 1; visibility: visible; pointer-events: auto; }
+  0%, 82% { opacity: 1; visibility: visible; pointer-events: auto; }
   99.9% { opacity: 0; visibility: visible; pointer-events: auto; }
   100% { opacity: 0; visibility: hidden; pointer-events: none; }
 }
 
 @keyframes onga-opening-background {
-  0% { opacity: 0; transform: scale(1.035); }
-  11.111% { opacity: 1; }
-  77.777% { opacity: 1; transform: scale(1); }
+  0% { opacity: 0; transform: scale(1.06); }
+  22% { opacity: 1; }
+  82% { opacity: 1; transform: scale(1); }
   100% { opacity: 1; transform: scale(1); }
 }
 
 @keyframes onga-opening-brand {
-  0%, 11.111% { opacity: 0; transform: translateY(10px) scale(.94); }
-  50%, 77.777% { opacity: 1; transform: translateY(0) scale(1); }
-  100% { opacity: 0; transform: translateY(-10px) scale(1); }
+  0%, 12% { opacity: 0; transform: translateY(18px) scale(.965); filter: blur(4px); }
+  48%, 80% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+  100% { opacity: 0; transform: translateY(-6px) scale(1.008); filter: blur(.5px); }
+}
+
+@keyframes onga-opening-copy {
+  0%, 32% { opacity: 0; transform: translateY(8px); }
+  56%, 80% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-3px); }
 }
 
 @keyframes onga-opening-skip {
@@ -180,7 +195,7 @@
 }
 
 @keyframes onga-opening-brand-skip {
-  to { opacity: 0; transform: translateY(-7px) scale(1); }
+  to { opacity: 0; transform: translateY(-5px) scale(1.004); filter: blur(1px); }
 }
 
 @keyframes onga-opening-background-skip {
@@ -213,6 +228,13 @@
   }
 
   .js.onga-intro-pending .onga-opening__brand {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    animation: none !important;
+  }
+
+  .js.onga-intro-pending .onga-opening__copy {
     opacity: 1;
     transform: none;
     animation: none !important;

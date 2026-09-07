@@ -13,8 +13,8 @@
   const skipButton = opening.querySelector('[data-onga-opening-skip]');
   const media = opening.querySelectorAll('[data-onga-opening-image]');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const duration = reducedMotion ? 600 : 3600;
-  const skipDuration = reducedMotion ? 0 : 360;
+  const duration = reducedMotion ? 600 : 5400;
+  const skipDuration = reducedMotion ? 0 : 480;
   let finished = false;
   let finishTimer;
 
