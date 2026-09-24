@@ -331,6 +331,12 @@ html[data-theme="dark"] .theme-toggle__track span { transform: translateX(17px);
 .access-card__content address { display: grid; gap: 10px; margin-bottom: 30px; padding-bottom: 25px; border-bottom: 1px solid var(--line); font-style: normal; }
 .access-card__content address strong { font-family: var(--font-heading); font-size: 1.1rem; }
 .access-card__content address span { color: var(--ink-soft); font-size: .78rem; }
+.access-hours { margin: 0 0 26px; display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--line); background: color-mix(in srgb, var(--color-brand-soft) 46%, transparent); }
+.access-hours > div { padding: 11px 13px; border-bottom: 1px solid var(--line); }
+.access-hours > div:nth-child(odd) { border-right: 1px solid var(--line); }
+.access-hours > div:nth-last-child(-n+2) { border-bottom: 0; }
+.access-hours dt { color: var(--ink-soft); font-size: .62rem; }
+.access-hours dd { margin: 1px 0 0; color: var(--akayu); font-family: var(--font-numeric); font-size: .76rem; font-weight: 700; white-space: nowrap; }
 .route-list { margin: 0 0 30px; padding: 0; list-style: none; }
 .route-list li { display: flex; gap: 20px; margin-bottom: 15px; }
 .route-list li > span { flex: 0 0 52px; padding: 3px 5px; align-self: start; border: 1px solid var(--line); text-align: center; font-size: .64rem; }
