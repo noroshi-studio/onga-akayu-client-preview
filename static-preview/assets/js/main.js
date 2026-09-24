@@ -27,7 +27,7 @@
       themeButton.setAttribute('aria-pressed', String(isDark));
       themeButton.setAttribute('aria-label', `${isDark ? 'ライト' : 'ダーク'}モードに切り替える`);
     }
-    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', isDark ? '#17262d' : '#efe8d6');
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', isDark ? '#21191c' : '#ffffff');
     if (persist) {
       try {
         localStorage.setItem('onga-theme', theme);

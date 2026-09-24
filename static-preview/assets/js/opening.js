@@ -13,8 +13,8 @@
   const skipButton = opening.querySelector('[data-onga-opening-skip]');
   const media = opening.querySelectorAll('[data-onga-opening-image]');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const duration = 5400;
-  const skipDuration = reducedMotion ? 0 : 480;
+  const duration = 3600;
+  const skipDuration = reducedMotion ? 0 : 360;
   let finished = false;
   let finishTimer;
 
@@ -69,6 +69,12 @@
 
   opening.addEventListener('animationend', (event) => {
     if (event.target === opening && !opening.classList.contains('is-ending')) complete();
+  });
+
+  // Safari may restore a page from its back-forward cache while timers are paused.
+  // Always clear the overlay and inline scroll lock when that happens.
+  window.addEventListener('pageshow', (event) => {
+    if (event.persisted) complete();
   });
 
 })();

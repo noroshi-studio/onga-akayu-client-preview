@@ -1,13 +1,13 @@
 /* =========================================================
    Opening sequence
-   Presentation images can be replaced without changing styles or scripts.
+   Official logo is layered independently over the existing background.
    ========================================================= */
 
 .onga-opening {
   --opening-ink: #070605;
   --opening-ivory: #f6efe2;
-  --opening-gold: #c3a36a;
-  --opening-duration: 5.4s;
+  --opening-accent: #A02F55;
+  --opening-duration: 3.6s;
   position: fixed;
   z-index: 10000;
   inset: 0;
@@ -83,27 +83,20 @@
 
 .onga-opening__logo-frame {
   position: relative;
-  width: clamp(166px, 42vw, 360px);
+  width: clamp(240px, 40vw, 410px);
   aspect-ratio: 1;
-  display: block;
-  overflow: hidden;
-  border-radius: 50%;
-  background: #fff;
-  box-shadow:
-    0 0 0 1px rgba(215, 183, 122, .2),
-    0 0 42px rgba(190, 119, 52, .14),
-    0 14px 52px rgba(0, 0, 0, .28);
+  display: grid;
+  place-items: center;
+  padding: 0;
+  overflow: visible;
+  background: rgba(255, 255, 255, .96);
 }
 
 .onga-opening__logo-frame img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 136%;
-  max-width: none;
-  height: auto;
+  width: 100%;
+  height: 100%;
   display: block;
-  transform: translate(-50%, -50%);
+  object-fit: contain;
 }
 
 .onga-opening__copy {
@@ -136,7 +129,7 @@
   letter-spacing: .18em;
   background: rgba(5, 4, 3, .2);
   border: 0;
-  border-bottom: 1px solid rgba(195, 163, 106, .56);
+  border-bottom: 1px solid rgba(247, 236, 240, .62);
   border-radius: 0;
   cursor: pointer;
   transition: color .2s ease, background-color .2s ease, border-color .2s ease;
@@ -145,7 +138,7 @@
 .onga-opening__skip:hover {
   color: #fff;
   background: rgba(5, 4, 3, .46);
-  border-bottom-color: var(--opening-gold);
+  border-bottom-color: #fff;
 }
 
 .onga-opening__skip:focus-visible {
@@ -154,15 +147,15 @@
 }
 
 .js.onga-intro-pending .onga-opening.is-ending {
-  animation: onga-opening-skip .48s ease forwards;
+  animation: onga-opening-skip .36s ease forwards;
 }
 
 .js.onga-intro-pending .onga-opening.is-ending .onga-opening__brand {
-  animation: onga-opening-brand-skip .48s ease forwards;
+  animation: onga-opening-brand-skip .36s ease forwards;
 }
 
 .js.onga-intro-pending .onga-opening.is-ending .onga-opening__background {
-  animation: onga-opening-background-skip .48s ease forwards;
+  animation: onga-opening-background-skip .36s ease forwards;
 }
 
 @keyframes onga-opening-layer {
@@ -208,7 +201,7 @@
   }
 
   .onga-opening__logo-frame {
-    width: clamp(166px, 52vw, 260px);
+    width: clamp(230px, 72vw, 310px);
   }
 
   .onga-opening__brand {
